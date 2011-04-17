@@ -11,7 +11,7 @@ function latest_twitter_status() {
   // var tw_st_url = escape ("http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + twitter_user_id + "&count=1");
   var tw_st_url = escape ("http://identi.ca/api/statuses/user_timeline.json?screen_name=" + twitter_user_id + "&count=1");
   $.ajax({
-    url: "api.php?s=twitter&u=" + tw_st_url,
+    url: "web_lib/api.php?s=twitter&u=" + tw_st_url,
     dataType: 'json',
     success: function(data) {
       var tweet = data[0].text;
@@ -37,7 +37,7 @@ function twitter_feed() {
   // var tw_st_url = escape ("http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + twitter_user_id + "&count=10");
   var tw_st_url = escape ("http://identi.ca/api/statuses/user_timeline.json?screen_name=" + twitter_user_id + "&count=10");
   $.getJSON(
-    "api.php?s=twitter&u=" + tw_st_url,
+    "web_lib/api.php?s=twitter&u=" + tw_st_url,
     function(data) {
       var ht = "<h3>identi.ca @" + twitter_user_id + "</h3><ul>";
       var idx;
@@ -64,7 +64,7 @@ function twitter_feed() {
 function github_repos() {
   var github_url = escape ("http://github.com/api/v2/json/repos/show/asolkar");
   $.getJSON(
-    "api.php?s=github&u=" + github_url,
+    "web_lib/api.php?s=github&u=" + github_url,
     function(data) {
       var ht = "<h3>GitHub Repos</h3><ul>";
       var idx;
@@ -84,7 +84,7 @@ function github_repos() {
 function blog_feed() {
   var blog_url = escape ("http://feeds2.feedburner.com/mahesha/tech");
   $.getJSON(
-    "api.php?s=feed&u=" + blog_url,
+    "web_lib/api.php?s=feed&u=" + blog_url,
     function(data) {
       var ht = "<h3>Day in, day out ...</h3><ul>";
       var idx;
