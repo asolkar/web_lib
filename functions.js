@@ -21,10 +21,10 @@ function latest_twitter_status() {
         tweet
         // + '<a href="http://twitter.com/asolkar/statuses/'
         // + data[0].id_str + '">'
+        + '<div class="timestamp">'
         + '<a href="http://identi.ca/notice/'
         + data[0].id + '">'
-        + '<span class="timestamp">'
-        + data[0].created_at + '</span></a>');
+        + data[0].created_at + '</a></div>');
       // expand_links($('#twitter_status'));
     },
     error: function(data, txt_sts, err_code) {
