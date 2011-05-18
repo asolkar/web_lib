@@ -40,7 +40,7 @@ function show_feed($feed_url, $feed_name = '') {
   foreach ($feed->get_items(0, 10) as $item) {
     $feed_out .= '  <li><a href="' . $item->get_permalink() . '">'
               . $item->get_title() . '</a> <div class="timestamp">'
-              . $item->get_date() . '</span></li>' . "\n";
+              . $item->get_date() . '</div></li>' . "\n";
   }
   $feed_out .= '</ul>' . "\n";
 

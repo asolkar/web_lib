@@ -73,7 +73,7 @@ function github_repos() {
               + 'asolkar/' + data.repositories[idx].name + '</a> - '
               + data.repositories[idx].description
               + '<div class="timestamp">Pushed '
-              + data.repositories[idx].pushed_at + '</li>';
+              + data.repositories[idx].pushed_at + '</div></li>';
       }
       ht += "</ul>";
       $('#github_repos').html(ht);
@@ -93,7 +93,7 @@ function blog_feed() {
         ht += '<li><a href="' + data[idx].url + '">'
               + data[idx].title + '</a>'
               + '<div class="timestamp">'
-              + data[idx].published_on + '</li>';
+              + data[idx].published_on + '</div></li>';
       }
       ht += "</ul>";
       $('#blog_feed').html(ht);
