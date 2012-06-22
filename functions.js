@@ -21,10 +21,10 @@ function latest_twitter_status() {
         tweet
         // + '<a href="http://twitter.com/asolkar/statuses/'
         // + data[0].id_str + '">'
+        + '<div class="timestamp">'
         + '<a href="http://identi.ca/notice/'
         + data[0].id + '">'
-        + '<span class="timestamp">'
-        + data[0].created_at + '</span></a>');
+        + data[0].created_at + '</a></div>');
       // expand_links($('#twitter_status'));
     },
     error: function(data, txt_sts, err_code) {
@@ -62,18 +62,18 @@ function twitter_feed() {
 }
 
 function github_repos() {
-  var github_url = escape ("http://github.com/api/v2/json/repos/show/asolkar");
+  var github_url = escape ("https://api.github.com/users/asolkar/repos?sort=pushed");
   $.getJSON(
     "web_lib/api.php?s=github&u=" + github_url,
     function(data) {
       var ht = "<h3>GitHub Repos</h3><ul>";
       var idx;
       for (idx=0; idx<10; idx++) {
-        ht += '<li><a href="' + data.repositories[idx].url + '">'
-              + 'asolkar/' + data.repositories[idx].name + '</a> - '
-              + data.repositories[idx].description
+        ht += '<li><a href="' + data[idx].html_url + '">'
+              + data[idx].full_name + '</a> - '
+              + data[idx].description
               + '<div class="timestamp">Pushed '
-              + data.repositories[idx].pushed_at + '</li>';
+              + data[idx].pushed_at + '</div></li>';
       }
       ht += "</ul>";
       $('#github_repos').html(ht);
@@ -93,7 +93,7 @@ function blog_feed() {
         ht += '<li><a href="' + data[idx].url + '">'
               + data[idx].title + '</a>'
               + '<div class="timestamp">'
-              + data[idx].published_on + '</li>';
+              + data[idx].published_on + '</div></li>';
       }
       ht += "</ul>";
       $('#blog_feed').html(ht);
